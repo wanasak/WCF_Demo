@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D41302E8-1DDF-4EB4-9DE1-1E2B3E8EDA92}</ProjectGuid>
+    <ProjectGuid>{924CD53B-239C-493E-8181-4AE19988B8AE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebServiceDemo</RootNamespace>
-    <AssemblyName>WebServiceDemo</AssemblyName>
+    <RootNamespace>WebClientDemo</RootNamespace>
+    <AssemblyName>WebClientDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -47,6 +47,8 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,15 +76,40 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HelloWebService.asmx" />
+    <Content Include="WebForm1.aspx" />
+    <None Include="Connected Services\HelloWebService\HelloWebService.disco" />
+    <None Include="Connected Services\HelloWebService\configuration91.svcinfo" />
+    <None Include="Connected Services\HelloWebService\configuration.svcinfo" />
+    <None Include="Connected Services\HelloWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
+    <None Include="Connected Services\HelloWebService\HelloWebService.wsdl" />
+    <Content Include="Connected Services\HelloWebService\WebClientDemo.HelloWebService.GetMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWebService.asmx.cs">
-      <DependentUpon>HelloWebService.asmx</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Connected Services\HelloWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\HelloWebService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -97,9 +124,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>9970</DevelopmentServerPort>
+          <DevelopmentServerPort>10027</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:9970/</IISUrl>
+          <IISUrl>http://localhost:10027/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
