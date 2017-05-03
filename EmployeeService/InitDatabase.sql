@@ -8,15 +8,15 @@
 GO
 
 insert into tblEmployee values (1, 'Mark', 'Male', '10/10/1980')
-insert into tblEmployee values (2, 'Mark', 'Female', '11/10/1981')
-insert into tblEmployee values (3, 'Mark', 'Male', '8/10/1997')
+insert into tblEmployee values (2, 'Nancy', 'Female', '11/10/1981')
+insert into tblEmployee values (3, 'John', 'Male', '8/10/1997')
 GO
 
 create procedure spGetEmployee
 @ID int
 as
 begin
-	select ID. Name, Gender, DateOfBirth
+	select ID, Name, Gender, DateOfBirth
 	from tblEmployee
 	where ID = @ID
 end
