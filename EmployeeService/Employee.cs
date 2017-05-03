@@ -3,6 +3,8 @@ using System.Runtime.Serialization;
 
 namespace EmployeeService
 {
+    [KnownType(typeof(FullTimeEmployee))]
+    [KnownType(typeof(PartTimeEmployee))]
     [DataContract]
     public class Employee
     {
@@ -22,5 +24,14 @@ namespace EmployeeService
 
         [DataMember(Order = 4)]
         public DateTime DateOfBirth { get; set; }
+
+        [DataMember(Order = 5)]
+        public EmployeeType Type { get; set; }
+    }
+
+    public enum EmployeeType
+    {
+        FullTime = 1,
+        PartTime = 2
     }
 }
