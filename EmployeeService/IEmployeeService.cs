@@ -8,9 +8,13 @@ using System.Text;
 namespace EmployeeService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IEmployeeService" in both code and config file together.
+    //[ServiceKnownType(typeof(FullTimeEmployee))]
+    //[ServiceKnownType(typeof(PartTimeEmployee))]
     [ServiceContract]
     public interface IEmployeeService
     {
+        //[ServiceKnownType(typeof(FullTimeEmployee))]
+        //[ServiceKnownType(typeof(PartTimeEmployee))]
         [OperationContract]
         Employee GetEmployee(int id);
 
