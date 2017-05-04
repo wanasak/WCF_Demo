@@ -1,0 +1,14 @@
+﻿DataContract - limited control
+MessageContract - full control
+
+Why do we use MessageContract in WC?
+- MessageContract gives full control over the SOAP messages.
+- It allows us to include custom information in the SOAP header.
+
+What kind of custom information?
+- User credentials.
+
+SOAP messages are in xml format, so anyone can read the credentials? How do you protect sensitive data?
+- Using MessageContract we can sign and encrypt messages. 
+- Use ProtectionLevel named parameter.
+
