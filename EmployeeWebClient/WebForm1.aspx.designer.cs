@@ -139,6 +139,24 @@ namespace EmployeeWebClient {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
+        /// btnGetEmployeeMessageContract control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGetEmployeeMessageContract;
+        
+        /// <summary>
+        /// btnSaveEmployeeContract control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveEmployeeContract;
+        
+        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>

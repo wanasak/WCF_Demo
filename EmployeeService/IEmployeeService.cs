@@ -19,6 +19,12 @@ namespace EmployeeService
         Employee GetEmployee(int id);
 
         [OperationContract]
+        EmployeeInfo GetEmployeeMessageContract(EmployeeRequest employeeRequest);
+
+        [OperationContract]
         void SaveEmployee(Employee employee);
+
+        [OperationContract]
+        void SaveEmployeeMessageContract(EmployeeInfo employee);
     }
 }

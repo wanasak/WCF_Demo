@@ -15,7 +15,7 @@ namespace EmployeeWebClient.EmployeeService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/EmployeeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://MyCompany.com/Employee")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(EmployeeWebClient.EmployeeService.FullTimeEmployee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(EmployeeWebClient.EmployeeService.PartTimeEmployee))]
@@ -191,9 +191,6 @@ namespace EmployeeWebClient.EmployeeService {
     public enum EmployeeType : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        None = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
         FullTime = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -210,11 +207,99 @@ namespace EmployeeWebClient.EmployeeService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployee", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeResponse")]
         System.Threading.Tasks.Task<EmployeeWebClient.EmployeeService.Employee> GetEmployeeAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeMessageContract", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeMessageContractResponse")]
+        EmployeeWebClient.EmployeeService.EmployeeInfo GetEmployeeMessageContract(EmployeeWebClient.EmployeeService.EmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/GetEmployeeMessageContract", ReplyAction="http://tempuri.org/IEmployeeService/GetEmployeeMessageContractResponse")]
+        System.Threading.Tasks.Task<EmployeeWebClient.EmployeeService.EmployeeInfo> GetEmployeeMessageContractAsync(EmployeeWebClient.EmployeeService.EmployeeRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeResponse")]
         void SaveEmployee(EmployeeWebClient.EmployeeService.Employee employee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployee", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeResponse")]
         System.Threading.Tasks.Task SaveEmployeeAsync(EmployeeWebClient.EmployeeService.Employee employee);
+        
+        // CODEGEN: Generating message contract since the operation SaveEmployeeMessageContract is neither RPC nor document wrapped.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeMessageContract", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeMessageContractResponse")]
+        EmployeeWebClient.EmployeeService.SaveEmployeeMessageContractResponse SaveEmployeeMessageContract(EmployeeWebClient.EmployeeService.EmployeeInfo request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmployeeService/SaveEmployeeMessageContract", ReplyAction="http://tempuri.org/IEmployeeService/SaveEmployeeMessageContractResponse")]
+        System.Threading.Tasks.Task<EmployeeWebClient.EmployeeService.SaveEmployeeMessageContractResponse> SaveEmployeeMessageContractAsync(EmployeeWebClient.EmployeeService.EmployeeInfo request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EmployeeRequestObject", WrapperNamespace="http://MyCompany.com/Employee", IsWrapped=true)]
+    public partial class EmployeeRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://MyCompany.com/Employee")]
+        public string LicenseKey;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=0)]
+        public int EmployeeID;
+        
+        public EmployeeRequest() {
+        }
+        
+        public EmployeeRequest(string LicenseKey, int EmployeeID) {
+            this.LicenseKey = LicenseKey;
+            this.EmployeeID = EmployeeID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EmployeeInfoObject", WrapperNamespace="http://MyCompany.com/Employee", IsWrapped=true)]
+    public partial class EmployeeInfo {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=0)]
+        public int ID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=1)]
+        public string Name;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=2)]
+        public string Gender;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=3)]
+        public System.DateTime DOB;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=4)]
+        public EmployeeWebClient.EmployeeService.EmployeeType Type;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=5)]
+        public int AnnualSalary;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=6)]
+        public int HourlyPay;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://MyCompany.com/Employee", Order=7)]
+        public int HoursWorked;
+        
+        public EmployeeInfo() {
+        }
+        
+        public EmployeeInfo(int ID, string Name, string Gender, System.DateTime DOB, EmployeeWebClient.EmployeeService.EmployeeType Type, int AnnualSalary, int HourlyPay, int HoursWorked) {
+            this.ID = ID;
+            this.Name = Name;
+            this.Gender = Gender;
+            this.DOB = DOB;
+            this.Type = Type;
+            this.AnnualSalary = AnnualSalary;
+            this.HourlyPay = HourlyPay;
+            this.HoursWorked = HoursWorked;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SaveEmployeeMessageContractResponse {
+        
+        public SaveEmployeeMessageContractResponse() {
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -252,12 +337,72 @@ namespace EmployeeWebClient.EmployeeService {
             return base.Channel.GetEmployeeAsync(id);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EmployeeWebClient.EmployeeService.EmployeeInfo EmployeeWebClient.EmployeeService.IEmployeeService.GetEmployeeMessageContract(EmployeeWebClient.EmployeeService.EmployeeRequest request) {
+            return base.Channel.GetEmployeeMessageContract(request);
+        }
+        
+        public int GetEmployeeMessageContract(string LicenseKey, int EmployeeID, out string Name, out string Gender, out System.DateTime DOB, out EmployeeWebClient.EmployeeService.EmployeeType Type, out int AnnualSalary, out int HourlyPay, out int HoursWorked) {
+            EmployeeWebClient.EmployeeService.EmployeeRequest inValue = new EmployeeWebClient.EmployeeService.EmployeeRequest();
+            inValue.LicenseKey = LicenseKey;
+            inValue.EmployeeID = EmployeeID;
+            EmployeeWebClient.EmployeeService.EmployeeInfo retVal = ((EmployeeWebClient.EmployeeService.IEmployeeService)(this)).GetEmployeeMessageContract(inValue);
+            Name = retVal.Name;
+            Gender = retVal.Gender;
+            DOB = retVal.DOB;
+            Type = retVal.Type;
+            AnnualSalary = retVal.AnnualSalary;
+            HourlyPay = retVal.HourlyPay;
+            HoursWorked = retVal.HoursWorked;
+            return retVal.ID;
+        }
+        
+        public System.Threading.Tasks.Task<EmployeeWebClient.EmployeeService.EmployeeInfo> GetEmployeeMessageContractAsync(EmployeeWebClient.EmployeeService.EmployeeRequest request) {
+            return base.Channel.GetEmployeeMessageContractAsync(request);
+        }
+        
         public void SaveEmployee(EmployeeWebClient.EmployeeService.Employee employee) {
             base.Channel.SaveEmployee(employee);
         }
         
         public System.Threading.Tasks.Task SaveEmployeeAsync(EmployeeWebClient.EmployeeService.Employee employee) {
             return base.Channel.SaveEmployeeAsync(employee);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EmployeeWebClient.EmployeeService.SaveEmployeeMessageContractResponse EmployeeWebClient.EmployeeService.IEmployeeService.SaveEmployeeMessageContract(EmployeeWebClient.EmployeeService.EmployeeInfo request) {
+            return base.Channel.SaveEmployeeMessageContract(request);
+        }
+        
+        public void SaveEmployeeMessageContract(int ID, string Name, string Gender, System.DateTime DOB, EmployeeWebClient.EmployeeService.EmployeeType Type, int AnnualSalary, int HourlyPay, int HoursWorked) {
+            EmployeeWebClient.EmployeeService.EmployeeInfo inValue = new EmployeeWebClient.EmployeeService.EmployeeInfo();
+            inValue.ID = ID;
+            inValue.Name = Name;
+            inValue.Gender = Gender;
+            inValue.DOB = DOB;
+            inValue.Type = Type;
+            inValue.AnnualSalary = AnnualSalary;
+            inValue.HourlyPay = HourlyPay;
+            inValue.HoursWorked = HoursWorked;
+            EmployeeWebClient.EmployeeService.SaveEmployeeMessageContractResponse retVal = ((EmployeeWebClient.EmployeeService.IEmployeeService)(this)).SaveEmployeeMessageContract(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<EmployeeWebClient.EmployeeService.SaveEmployeeMessageContractResponse> EmployeeWebClient.EmployeeService.IEmployeeService.SaveEmployeeMessageContractAsync(EmployeeWebClient.EmployeeService.EmployeeInfo request) {
+            return base.Channel.SaveEmployeeMessageContractAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<EmployeeWebClient.EmployeeService.SaveEmployeeMessageContractResponse> SaveEmployeeMessageContractAsync(int ID, string Name, string Gender, System.DateTime DOB, EmployeeWebClient.EmployeeService.EmployeeType Type, int AnnualSalary, int HourlyPay, int HoursWorked) {
+            EmployeeWebClient.EmployeeService.EmployeeInfo inValue = new EmployeeWebClient.EmployeeService.EmployeeInfo();
+            inValue.ID = ID;
+            inValue.Name = Name;
+            inValue.Gender = Gender;
+            inValue.DOB = DOB;
+            inValue.Type = Type;
+            inValue.AnnualSalary = AnnualSalary;
+            inValue.HourlyPay = HourlyPay;
+            inValue.HoursWorked = HoursWorked;
+            return ((EmployeeWebClient.EmployeeService.IEmployeeService)(this)).SaveEmployeeMessageContractAsync(inValue);
         }
     }
 }
