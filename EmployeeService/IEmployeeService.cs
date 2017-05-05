@@ -26,5 +26,8 @@ namespace EmployeeService
 
         [OperationContract]
         void SaveEmployeeMessageContract(EmployeeInfo employee);
+
+        [OperationContract]
+        void AdditionalMethod();
     }
 }

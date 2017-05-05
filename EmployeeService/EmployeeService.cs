@@ -13,6 +13,11 @@ namespace EmployeeService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmployeeService" in both code and config file together.
     public class EmployeeService : IEmployeeService
     {
+        public void AdditionalMethod()
+        {
+            throw new NotImplementedException();
+        }
+
         public Employee GetEmployee(int id)
         {
             Employee employee = null;
