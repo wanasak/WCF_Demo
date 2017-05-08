@@ -26,7 +26,7 @@ namespace EmployeeService
         {
             this.ID = employee.ID;
             this.Name = employee.Name;
-            this.Gender = employee.Gender;
+            //this.Gender = employee.Gender;
             this.DOB = employee.DateOfBirth;
             this.Type = employee.Type;
             if (this.Type == EmployeeType.FullTime)
@@ -66,7 +66,7 @@ namespace EmployeeService
     [KnownType(typeof(FullTimeEmployee))]
     [KnownType(typeof(PartTimeEmployee))]
     [DataContract(Namespace = "http://MyCompany.com/Employee")]
-    public class Employee
+    public class Employee : IExtensibleDataObject
     {
         private int _ID;
         private string _Name;
@@ -79,8 +79,8 @@ namespace EmployeeService
         [DataMember(Order = 2)]
         public string Name { get; set; }
 
-        [DataMember(Order = 3)]
-        public string Gender { get; set; }
+        //[DataMember(Order = 3)]
+        //public string Gender { get; set; }
 
         [DataMember(Order = 4)]
         public DateTime DateOfBirth { get; set; }
@@ -90,6 +90,7 @@ namespace EmployeeService
 
         [DataMember(Order = 6)]
         public string City { get; set; }
+        public ExtensionDataObject ExtensionData { get; set; }
     }
 
     public enum EmployeeType

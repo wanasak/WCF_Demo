@@ -57,6 +57,7 @@
   <ItemGroup>
     <Content Include="InitDatabase.sql" />
     <Content Include="InitDatabase2.sql" />
+    <Content Include="InitDatabase3.sql" />
     <Content Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

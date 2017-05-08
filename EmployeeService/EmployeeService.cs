@@ -11,8 +11,11 @@ using System.Text;
 namespace EmployeeService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmployeeService" in both code and config file together.
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class EmployeeService : IEmployeeService
     {
+        private Employee _lastEmployee;
+
         public void AdditionalMethod()
         {
             throw new NotImplementedException();
@@ -40,7 +43,7 @@ namespace EmployeeService
                         {
                             ID = Convert.ToInt32(reader["ID"]),
                             Name = reader["Name"].ToString(),
-                            Gender = reader["Gender"].ToString(),
+                            //Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             Type = EmployeeType.FullTime,
                             AnnualSalary = Convert.ToInt32(reader["AnnualSalary"])
@@ -52,7 +55,7 @@ namespace EmployeeService
                         {
                             ID = Convert.ToInt32(reader["ID"]),
                             Name = reader["Name"].ToString(),
-                            Gender = reader["Gender"].ToString(),
+                            //Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             Type = EmployeeType.PartTime,
                             HourlyPay = Convert.ToInt32(reader["HourlyPay"]),
@@ -61,6 +64,8 @@ namespace EmployeeService
                     }
                 }
             }
+            if (_lastEmployee != null && _lastEmployee.ID == id)
+                employee.ExtensionData = _lastEmployee.ExtensionData;
             return employee;
         }
 
@@ -87,7 +92,7 @@ namespace EmployeeService
                         {
                             ID = Convert.ToInt32(reader["ID"]),
                             Name = reader["Name"].ToString(),
-                            Gender = reader["Gender"].ToString(),
+                            //Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             Type = EmployeeType.FullTime,
                             AnnualSalary = Convert.ToInt32(reader["AnnualSalary"])
@@ -99,7 +104,7 @@ namespace EmployeeService
                         {
                             ID = Convert.ToInt32(reader["ID"]),
                             Name = reader["Name"].ToString(),
-                            Gender = reader["Gender"].ToString(),
+                            //Gender = reader["Gender"].ToString(),
                             DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                             Type = EmployeeType.PartTime,
                             HourlyPay = Convert.ToInt32(reader["HourlyPay"]),
@@ -113,6 +118,7 @@ namespace EmployeeService
 
         public void SaveEmployee(Employee employee)
         {
+            _lastEmployee = employee;
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -132,12 +138,12 @@ namespace EmployeeService
                 };
                 cmd.Parameters.Add(parameterName);
 
-                SqlParameter parameterGender = new SqlParameter
-                {
-                    ParameterName = "@Gender",
-                    Value = employee.Gender
-                };
-                cmd.Parameters.Add(parameterGender);
+                //SqlParameter parameterGender = new SqlParameter
+                //{
+                //    ParameterName = "@Gender",
+                //    Value = employee.Gender
+                //};
+                //cmd.Parameters.Add(parameterGender);
 
                 SqlParameter parameterDateOfBirth = new SqlParameter
                 {
