@@ -36,6 +36,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeServiceHost", "Empl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWebClient", "EmployeeWebClient\EmployeeWebClient.csproj", "{36A20D85-9770-433E-BEDF-C0F0F0B3276A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorService", "CalculatorService\CalculatorService.csproj", "{5C452854-66FE-48FB-B28A-5470408AE4F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorServiceHost", "CalculatorServiceHost\CalculatorServiceHost.csproj", "{F9A10165-D22E-4401-BDCA-55342F39A561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorWebClient", "CalculatorWebClient\CalculatorWebClient.csproj", "{DCA5142C-28CF-406A-82AD-5FB78A923E74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,6 +108,18 @@ Global
 		{36A20D85-9770-433E-BEDF-C0F0F0B3276A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A20D85-9770-433E-BEDF-C0F0F0B3276A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36A20D85-9770-433E-BEDF-C0F0F0B3276A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C452854-66FE-48FB-B28A-5470408AE4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C452854-66FE-48FB-B28A-5470408AE4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C452854-66FE-48FB-B28A-5470408AE4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C452854-66FE-48FB-B28A-5470408AE4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A10165-D22E-4401-BDCA-55342F39A561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A10165-D22E-4401-BDCA-55342F39A561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A10165-D22E-4401-BDCA-55342F39A561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A10165-D22E-4401-BDCA-55342F39A561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA5142C-28CF-406A-82AD-5FB78A923E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA5142C-28CF-406A-82AD-5FB78A923E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA5142C-28CF-406A-82AD-5FB78A923E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA5142C-28CF-406A-82AD-5FB78A923E74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
