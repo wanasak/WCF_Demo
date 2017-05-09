@@ -35,7 +35,7 @@ namespace CalculatorWinClient
             }
             catch (FaultException ex)
             {
-                lblStatus.Text = ex.Message.ToString();
+                lblStatus.Text = ex.Code.Name + ": " + ex.Message;
             }
         }
 

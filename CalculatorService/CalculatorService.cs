@@ -12,6 +12,11 @@ namespace CalculatorService
     {
         public int Devide(int numerator, int denominator)
         {
+            //.NET exception
+            //if (denominator == 0) throw new DivideByZeroException();
+            // WCF exception
+            if (denominator == 0) throw new FaultException("Denomintor cannot be ZERO", new FaultCode("DivideByZeroException"));
+
             return numerator / denominator;
         }
     }
