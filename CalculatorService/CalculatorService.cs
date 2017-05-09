@@ -15,9 +15,18 @@ namespace CalculatorService
             //.NET exception
             //if (denominator == 0) throw new DivideByZeroException();
             // WCF exception
-            if (denominator == 0) throw new FaultException("Denomintor cannot be ZERO", new FaultCode("DivideByZeroException"));
-
-            return numerator / denominator;
+            //if (denominator == 0) throw new FaultException("Denomintor cannot be ZERO", new FaultCode("DivideByZeroException"));
+            try
+            {
+                return numerator / denominator;
+            }
+            catch (DivideByZeroException ex)
+            {
+                DivideByZeroFault fault = new DivideByZeroFault();
+                fault.Error = ex.Message;
+                fault.Details = "Denominator cannot be ZERO";
+                throw new FaultException<DivideByZeroFault>(fault);
+            }
         }
     }
 }

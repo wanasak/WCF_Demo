@@ -11,6 +11,7 @@ namespace CalculatorService
     [ServiceContract]
     public interface ICalculatorService
     {
+        [FaultContract(typeof(DivideByZeroFault))]
         [OperationContract]
         int Devide(int numerator, int denominator);
     }
