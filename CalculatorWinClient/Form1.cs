@@ -33,14 +33,14 @@ namespace CalculatorWinClient
                 int denominator = Convert.ToInt32(txtDenominator.Text);
                 lblStatus.Text = _client.Devide(numerator, denominator).ToString();
             }
-            //catch (FaultException ex)
-            //{
-            //    lblStatus.Text = ex.Code.Name + ": " + ex.Message;
-            //}
-            catch(FaultException<CalculatorService.DivideByZeroFault> ex)
+            catch (FaultException ex)
             {
-                lblStatus.Text = ex.Detail.Error + " " + ex.Detail.Details;
+                lblStatus.Text = ex.Code.Name + ": " + ex.Message;
             }
+            //catch(FaultException<CalculatorService.DivideByZeroFault> ex)
+            //{
+            //    lblStatus.Text = ex.Detail.Error + " " + ex.Detail.Details;
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
